@@ -48,7 +48,7 @@ async function postMessage(page, msg)
         });
         console.log(links.length)
 
-  // browser.close();
+   browser.close();
 
   
 })()
