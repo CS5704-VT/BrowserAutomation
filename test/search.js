@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const { expect }  = require('chai');
+const { expect } = require('chai');
 
 describe('Duck Duck Go search using basic Puppeteer', function () {
 
@@ -9,10 +9,10 @@ describe('Duck Duck Go search using basic Puppeteer', function () {
     this.timeout(5000000);
 
     beforeEach(async () => {
-        browser = await puppeteer.launch({headless:true});
+        browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
 
-        await page.goto('https://duckduckgo.com', {waitUntil: 'networkidle0'});
+        await page.goto('https://duckduckgo.com', { waitUntil: 'networkidle0' });
     });
 
     afterEach(async () => {
@@ -20,7 +20,7 @@ describe('Duck Duck Go search using basic Puppeteer', function () {
     });
 
     it('should be the correct url', async () => {
-        expect(await page.url()).to.eql('https://google.com/');
+        expect(await page.url()).to.eql('https://duckduckgo.com/');
     });
 
     it('should have the correct page title', async () => {
@@ -28,6 +28,6 @@ describe('Duck Duck Go search using basic Puppeteer', function () {
     });
 
     it('should have the page open', async () => {
-        expect(await page.isClosed()).to.eql(true);
+        expect(await page.isClosed()).to.eql(false);
     });
 });
